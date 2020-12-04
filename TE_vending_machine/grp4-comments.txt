@@ -1,0 +1,11 @@
+1. Code is super clean and well organized with good use
+of inheritances, packages, and well encapsulated methods.
+
+2. The feature to press a number to exit out of option 1 (display items)
+seems like an odd design choice:
+
+ENTER A NUMBER TO RETURN TO MAIN MENU
+
+Please choose an option >>> 
+
+But seriously, almost nothing to complain about, great job!
