@@ -20,9 +20,10 @@ public class Audit {
 	private static DateTimeFormatter logFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
 	private static DateTimeFormatter salesFormat = DateTimeFormatter.ofPattern("MM-dd-yyyy--hh-mm-ss-a");
 	
-	public void record(Funds account, String action) {
+	public void record(Funds account, String action, String fileName) {
 		
-		File outputFile = new File("Log.txt");
+		String fileSave = fileName + ".txt";
+		File outputFile = new File(fileSave);
 		LocalDateTime time = LocalDateTime.now();
 		String now = time.format(logFormat);
 		String actionFormat = String.format("%-" + 20 + "s", action);

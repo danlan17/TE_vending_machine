@@ -24,9 +24,9 @@ public class AuditTest {
 		stash.vendProduct(item, account);
 		String action = item.getName() + " " + item.getSlot();
 		
-		tracker.record(account, action);
+		tracker.record(account, action, "test_log");
 		
-		File file = new File("Log.txt");
+		File file = new File("test_log.txt");
 		
 		String actual = "";
 		

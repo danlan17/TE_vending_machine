@@ -47,10 +47,6 @@ public class Menu {
 			if (options[i].equals("Sales Report")) {
 				continue;
 			}
-			if (options[i].equals("\nENTER A NUMBER TO RETURN TO MAIN MENU")) {
-				out.println(options[i]);
-				continue;
-			}
 			int optionNum = i + 1;
 			out.println(optionNum + ") " + options[i]);
 		}

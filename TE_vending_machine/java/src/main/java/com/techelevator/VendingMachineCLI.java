@@ -19,6 +19,7 @@ public class VendingMachineCLI {
 	
 	private static final String[] PURCHASE_MENU = { "Feed Money", "Select Product", "Finish Transaction", "Back"};
 	private static final String[] ADD_FUNDS_MENU = { "$1", "$5", "$10", "Back"};
+	private static String logName = "Log";
 	private Menu menu;
 
 	public VendingMachineCLI(Menu menu) {
@@ -33,11 +34,13 @@ public class VendingMachineCLI {
 		
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
-			System.out.println("\nYou Have Selected: " + choice);
+			System.out.println("\nYou Have Selected: " + choice + "\n");
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				
-				menu.getChoiceFromOptions(stash.getItemDisplay());
+				for (String item : stash.getItemDisplay()) {
+					System.out.println(item);
+				}
 			} 
 			else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 
@@ -64,7 +67,7 @@ public class VendingMachineCLI {
 						System.out.println("\nYou Have Selected: Finish Transaction\n");
 						account.updatePreBalance();
 						System.out.println(account.makeChange());
-						tracker.record(account, "GIVE CHANGE:");
+						tracker.record(account, "GIVE CHANGE:", logName);
 						break;
 					}
 				}
@@ -93,7 +96,7 @@ public class VendingMachineCLI {
 			fundsOption = (String) menu.getChoiceFromOptions(ADD_FUNDS_MENU);
 			account.processMoney(fundsOption);
 			if (fundsOption.equals("$1") || fundsOption.equals("$5") || fundsOption.equals("$10")) {
-				tracker.record(account, "FEED MONEY:");
+				tracker.record(account, "FEED MONEY:", logName);
 			}
 		}
 		
@@ -114,7 +117,7 @@ public class VendingMachineCLI {
 			System.out.println("\nVending");
 			System.out.println("-------");
 			stash.vendProduct(item, account);
-			tracker.record(account, action);
+			tracker.record(account, action, logName);
 		}
 	}
 

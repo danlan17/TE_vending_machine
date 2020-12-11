@@ -100,7 +100,7 @@ public class Inventory {
 			quant = "SOLD OUT";
 		}
 		String name = String.format("%-" + 20 + "s", item.getName());
-		String display = String.format("\t%s\t%s $%s\tQuantity: %s", item.getSlot(), 
+		String display = String.format("%s\t%s $%s\tQuantity: %s", item.getSlot(), 
 				name, item.getPrice(), quant);
 		
 		return display;
@@ -118,7 +118,6 @@ public class Inventory {
 			tempDisplay.add(display);
 			indexMap.put(itemNames[i], i);
 		}
-		tempDisplay.add("\nENTER A NUMBER TO RETURN TO MAIN MENU");
 		this.itemDisplay = tempDisplay.toArray(new String[tempDisplay.size()]);
 	}
 		
